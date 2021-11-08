@@ -55,6 +55,10 @@ add_executable(${PROJECT_NAME}_node
   src/k4a_calibration_transform_data.cpp
   )
 
+add_executable(k4a_ros_tf
+  src/k4a_ros_tf.cpp
+  )
+  
 target_compile_features(${PROJECT_NAME}_node PUBLIC cxx_std_11)
 
 add_library(${PROJECT_NAME}_nodelet
@@ -119,6 +123,9 @@ target_link_libraries(${PROJECT_NAME}_node
   ${K4A_LIBS}
   ${catkin_LIBRARIES}
 )
+
+target_link_libraries(k4a_ros_tf ${catkin_LIBRARIES})
+
 
 target_link_libraries(${PROJECT_NAME}_nodelet
   ${K4A_LIBS}
